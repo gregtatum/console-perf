@@ -11,7 +11,6 @@ class Message extends PureComponent {
 
   render() {
     // for (let i = 0; i < 1e6; i += Math.random());
-    console.log('<Message>' + this.props.text + '</Message>')
     return (
       <div className='message' style={{height: this.state.height}}>
         {this.props.text}
@@ -40,11 +39,12 @@ class Console extends PureComponent {
   }
 
   addMessage() {
+    console.time("addMessage")
     for (let i = 0; i < 100; i++) {
       this.state.messages.push('Message ' + n++);
     }
-    startUpdate = performance.now()
     this.forceUpdate();
+    console.timeEnd("addMessage")
   }
 
   componentDidMount() {
@@ -53,7 +53,6 @@ class Console extends PureComponent {
 
   componentDidUpdate() {
     if (startUpdate !== null) {
-      console.log('Console updated in: ' + (performance.now() - startUpdate))
       startUpdate = null
     }
     if (this.state.atScrollBottom) {
@@ -67,7 +66,6 @@ class Console extends PureComponent {
 
   render() {
     const { messages } = this.state;
-    console.log('<Console />')
     return (
       <div className='console' ref={el => this.container = el}>
         {messages.map((text, index) =>
