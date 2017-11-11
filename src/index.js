@@ -3,4 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Console from './Console';
 
-ReactDOM.render(<Console />, document.getElementById('root')); 
+console.time("render")
+ReactDOM.render(<Console mutableMessages={[]} />, document.getElementById('root'));
+console.timeEnd("render")
