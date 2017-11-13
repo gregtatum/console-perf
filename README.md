@@ -52,3 +52,32 @@ It looks like:
   </MessageBatcher>
 </Console>
 ```
+
+## Binary Message Tree
+
+* [View the branch and analysis](https://github.com/gregtatum/console-perf/tree/binary-tree)
+* [https://perfht.ml/2mmNzCX](https://perfht.ml/2mmNzCX)
+* `git checkout binary-tree`
+* `npm start`
+
+```
+<Console>
+  <MessageTree>
+    <MessageTree>
+        <Message />
+        <Message />
+    </MessageTree>
+    <MessageTree>
+        <Message />
+        <Message />
+    </MessageTree>
+  </MessageTree>
+  <MessageTree>
+    <MessageTree>
+        <Message />
+        null
+    </MessageTree>
+    null
+  </MessageTree>
+</Console>
+```
