@@ -1,5 +1,33 @@
 // @flow
 
+/**
+ *
+ * The addMessage function creates a MessageBinaryTree. This binary tree only has
+ * messages at the very leaf nodes. So it takes the form.
+ *
+ *  T: MessageBinaryTree node
+ *  m: Message
+ *  o: null
+ *
+ * Add a message to a tree with 2 messages.
+ *
+ *         T                      T
+ *       ↙  ↘       ->         ↙     ↘
+ *      m    m               T         T
+ *                         ↙  ↘       ↙  ↘
+ *                        m    m     m    o
+ *
+ * This is even more dramatic on a tree with more nodes:
+ *
+ *            T                       T
+ *         ↙     ↘       ->        ↙     ↘
+ *       T         T             T         T
+ *     ↙  ↘       ↙  ↘         ↙  ↘       ↙  ↘
+ *    m    m     m    o       T    T     T    T
+ *                           ↙ ↘  ↙ ↘   ↙ ↘  ↙ ↘
+ *                           m m  m m   m o  o o
+*/
+
 /*::
 type Message = string
 type MessageBinaryTree = {|
