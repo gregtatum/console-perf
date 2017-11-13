@@ -146,7 +146,7 @@ class Console extends PureComponent {
 
     let messageTree
     console.time("addInitialMessage")
-    for (let i = 0; i < 1e5; i++) {
+    for (let i = 0; i < 1e4; i++) {
       messageTree = addMessageToBinaryTree(messageTree, 'Message ' + n++)
     }
     console.timeEnd("addInitialMessage")
@@ -179,7 +179,9 @@ class Console extends PureComponent {
   }
 
   forceBottomScroll() {
-    this.container.scrollTop = 1e10;
+    requestAnimationFrame(() => {
+      this.container.scrollTop = 1e10;
+    })
   }
 
   render() {
