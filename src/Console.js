@@ -83,6 +83,31 @@ class Message extends PureComponent {
   }
 }
 
+function createTimer (label) {
+  let calls = 0
+  let averageTime = null
+  let startTime
+
+  return {
+    start: () => {
+      startTime = performance.now()
+    },
+    end: () => {
+      const timeDiff = performance.now() - startTime
+      calls++
+      if (averageTime === null) {
+        averageTime = timeDiff
+      } else {
+        averageTime *= (calls - 1) / calls
+        averageTime += timeDiff / calls
+      }
+      console.log(`${label}: ${timeDiff.toFixed(2)}ms (average ${averageTime.toFixed(2)}ms)`)
+    }
+  }
+}
+
+const addMessageTimer = createTimer("addMessage")
+
 let startUpdate = null
 let n = 0
 class Console extends PureComponent {
@@ -101,13 +126,13 @@ class Console extends PureComponent {
   }
 
   addMessage() {
-    console.time("addMessage")
+    addMessageTimer.start()
     for (let i = 0; i < 1e2; i++) {
       this.props.mutableMessages.push('Message ' + n++);
     }
     startUpdate = performance.now()
     this.forceUpdate();
-    console.timeEnd("addMessage")
+    addMessageTimer.end()
   }
 
   componentDidMount() {
@@ -124,7 +149,9 @@ class Console extends PureComponent {
   }
 
   forceBottomScroll() {
-    this.container.scrollTop = 1e10;
+    requestAnimationFrame(() => {
+      this.container.scrollTop = 1e10;
+    })
   }
 
   render() {

@@ -40,23 +40,37 @@ It looks like:
 ## Timing for this test:
 
 ```
-render: 1056.15ms
-addMessage: 29.93ms
-addMessage: 33.79ms
-addMessage: 30.8ms
-addMessage: 32.93ms
-addMessage: 26.01ms
-addMessage: 29.91ms
-addMessage: 21.05ms
-addMessage: 28.04ms
-addMessage: 34.78ms
-addMessage: 33.6ms
-addMessage: 25.2ms
-addMessage: 29.83ms
-addMessage: 22.45ms
-addMessage: 27.22ms
-addMessage: 17.16ms
-addMessage: 18.8ms
+render: 616.84ms
+addMessage: 19.83ms (average 19.83ms)
+addMessage: 27.56ms (average 23.70ms)
+addMessage: 13.28ms (average 20.22ms)
+addMessage: 17.76ms (average 19.61ms)
+addMessage: 14.73ms (average 18.63ms)
+addMessage: 16.86ms (average 18.34ms)
+addMessage: 12.22ms (average 17.46ms)
+addMessage: 12.25ms (average 16.81ms)
+addMessage: 10.73ms (average 16.13ms)
+addMessage: 18.12ms (average 16.33ms)
+addMessage: 12.01ms (average 15.94ms)
+addMessage: 13.11ms (average 15.70ms)
+addMessage: 8.86ms (average 15.18ms)
+addMessage: 15.14ms (average 15.17ms)
+addMessage: 8.82ms (average 14.75ms)
+addMessage: 9.40ms (average 14.42ms)
+addMessage: 9.00ms (average 14.10ms)
+addMessage: 10.53ms (average 13.90ms)
+addMessage: 9.59ms (average 13.67ms)
+addMessage: 10.68ms (average 13.52ms)
+addMessage: 9.83ms (average 13.35ms)
+addMessage: 11.09ms (average 13.24ms)
+addMessage: 9.62ms (average 13.09ms)
+addMessage: 15.98ms (average 13.21ms)
+addMessage: 9.53ms (average 13.06ms)
+addMessage: 10.64ms (average 12.97ms)
+addMessage: 9.76ms (average 12.85ms)
+addMessage: 11.18ms (average 12.79ms)
+addMessage: 8.61ms (average 12.64ms)
+addMessage: 11.19ms (average 12.60ms
 ```
 
 ## Profile
