@@ -19,6 +19,31 @@ class Message extends PureComponent {
   }
 }
 
+function createTimer (label) {
+  let calls = 0
+  let averageTime = null
+  let startTime
+
+  return {
+    start: () => {
+      startTime = performance.now()
+    },
+    end: () => {
+      const timeDiff = performance.now() - startTime
+      calls++
+      if (averageTime === null) {
+        averageTime = timeDiff
+      } else {
+        averageTime *= (calls - 1) / calls
+        averageTime += timeDiff / calls
+      }
+      console.log(`${label}: ${timeDiff.toFixed(2)}ms (average ${averageTime.toFixed(2)}ms)`)
+    }
+  }
+}
+
+const addMessageTimer = createTimer("addMessage")
+
 let startUpdate = null
 let n = 0
 class Console extends PureComponent {
@@ -39,16 +64,18 @@ class Console extends PureComponent {
   }
 
   addMessage() {
-    console.time("addMessage")
+    addMessageTimer.start()
     for (let i = 0; i < 100; i++) {
       this.state.messages.push('Message ' + n++);
     }
     this.forceUpdate();
-    console.timeEnd("addMessage")
+    addMessageTimer.end()
   }
 
   componentDidMount() {
-    this.forceBottomScroll();
+    requestAnimationFrame(() => {
+      this.container.scrollTop = 1e10;
+    })
   }
 
   componentDidUpdate() {
