@@ -16,7 +16,6 @@ This test batch adds 100 messages every 500ms. This is a useful way to see how R
 ```
 
 * [View the branch and analysis](https://github.com/gregtatum/console-perf/tree/batch-add-interval)
-* [https://perfht.ml/2yPxNGs](https://perfht.ml/2yPxNGs)
 * `git checkout batch-add-interval`
 * `npm start`
 
@@ -25,7 +24,6 @@ This test batch adds 100 messages every 500ms. This is a useful way to see how R
 This test takes the list of messages and tries to minimize the `O(n)` characteristics of updating the list of messages.
 
 * [View the branch and analysis](https://github.com/gregtatum/console-perf/tree/message-batcher-component)
-* [https://perfht.ml/2hlsQda](https://perfht.ml/2hlsQda)
 * `git checkout message-batcher-component`
 * `npm start`
 
@@ -56,7 +54,6 @@ It looks like:
 ## Binary Message Tree
 
 * [View the branch and analysis](https://github.com/gregtatum/console-perf/tree/binary-tree)
-* [https://perfht.ml/2mmNzCX](https://perfht.ml/2mmNzCX)
 * `git checkout binary-tree`
 * `npm start`
 
