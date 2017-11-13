@@ -1,2 +1,2 @@
 [include]
-message-tree.js
+src/message-tree.js

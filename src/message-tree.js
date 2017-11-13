@@ -2,8 +2,8 @@
 
 /**
  *
- * The addMessage function creates a MessageBinaryTree. This binary tree only has
- * messages at the very leaf nodes. So it takes the form.
+ * The addMessageToBinaryTree function creates a MessageBinaryTree. This binary tree only
+ * has messages at the very leaf nodes.
  *
  *  T: MessageBinaryTree node
  *  m: Message
@@ -12,19 +12,19 @@
  * Add a message to a tree with 2 messages.
  *
  *         T                      T
- *       ↙  ↘       ->         ↙     ↘
+ *       /  \       ->         /     \
  *      m    m               T         T
- *                         ↙  ↘       ↙  ↘
+ *                         /  \       /  \
  *                        m    m     m    o
  *
  * This is even more dramatic on a tree with more nodes:
  *
  *            T                       T
- *         ↙     ↘       ->        ↙     ↘
+ *         /     \       ->        /     \
  *       T         T             T         T
- *     ↙  ↘       ↙  ↘         ↙  ↘       ↙  ↘
- *    m    m     m    o       T    T     T    T
- *                           ↙ ↘  ↙ ↘   ↙ ↘  ↙ ↘
+ *     /  \       /  \         /  \       /  \
+ *    m    m     m    m       T    T     T    T
+ *                           / \  / \   / \  / \
  *                           m m  m m   m o  o o
 */
 
@@ -45,7 +45,9 @@ const EMPTY_TREE = Object.freeze({
   emptySlots: 2
 })
 
-function addMessage (
+module.exports = addMessageToBinaryTree
+
+function addMessageToBinaryTree (
   messageTree/*: ?MessageBinaryTree */,
   message/* :Message */
 )/*: MessageBinaryTree */ {
@@ -178,7 +180,7 @@ function addMessageRecursively (
 
 function testTree () {
   let messageTree = null
-  messageTree = addMessage(messageTree, 'Message 0')
+  messageTree = addMessageToBinaryTree(messageTree, 'Message 0')
   console.assert(
     humanReadableTree(messageTree) === [
       '0)',
@@ -187,7 +189,7 @@ function testTree () {
     ].join('\n')
   )
 
-  messageTree = addMessage(messageTree, 'Message 1')
+  messageTree = addMessageToBinaryTree(messageTree, 'Message 1')
   console.assert(
     humanReadableTree(messageTree) === [
       '0)',
@@ -196,7 +198,7 @@ function testTree () {
     ].join('\n')
   )
 
-  messageTree = addMessage(messageTree, 'Message 2')
+  messageTree = addMessageToBinaryTree(messageTree, 'Message 2')
   console.assert(
     humanReadableTree(messageTree) === [
       '1)',
@@ -209,7 +211,7 @@ function testTree () {
     ].join('\n')
   )
 
-  messageTree = addMessage(messageTree, 'Message 3')
+  messageTree = addMessageToBinaryTree(messageTree, 'Message 3')
   console.assert(
     humanReadableTree(messageTree) === [
       '1)',
@@ -222,7 +224,7 @@ function testTree () {
     ].join('\n')
   )
 
-  messageTree = addMessage(messageTree, 'Message 4')
+  messageTree = addMessageToBinaryTree(messageTree, 'Message 4')
   console.assert(
     humanReadableTree(messageTree) === [
       '2)',
@@ -243,7 +245,7 @@ function testTree () {
     ].join('\n')
   )
 
-  messageTree = addMessage(messageTree, 'Message 5')
+  messageTree = addMessageToBinaryTree(messageTree, 'Message 5')
   console.assert(
     humanReadableTree(messageTree) === [
       '2)',
@@ -264,7 +266,7 @@ function testTree () {
     ].join('\n')
   )
 
-  messageTree = addMessage(messageTree, 'Message 6')
+  messageTree = addMessageToBinaryTree(messageTree, 'Message 6')
   console.assert(
     humanReadableTree(messageTree) === [
       '2)',
@@ -285,7 +287,7 @@ function testTree () {
     ].join('\n')
   )
 
-  messageTree = addMessage(messageTree, 'Message 7')
+  messageTree = addMessageToBinaryTree(messageTree, 'Message 7')
   console.assert(
     humanReadableTree(messageTree) === [
       '2)',
