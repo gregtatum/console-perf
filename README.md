@@ -37,6 +37,18 @@ It looks like:
 </Console>
 ```
 
+Rather than have messages in one big array, we try to make it easy to understand when the structure is different by dividing everything up into an immutable binary tree. The structure of the tree is such that only the leaf nodes have the messages. For instance, moving from 4 to 5 messages doubles the tree size. We only walk the entire tree during the initial render, every update then has to only walk the depth to the modified nodes, making it really quick to zero in on where work needs to be done.
+
+```
+            T                              T
+         /     \          ->            /     \
+       T         T                    T         T
+     /  \       /  \                /  \       /  \
+    m    m     m    m              T    T     T    T
+                                  / \  / \   / \  / \
+                                  m m  m m   m o  o o
+```
+
 ## Timing for this test:
 
 ```
