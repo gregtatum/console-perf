@@ -1,19 +1,10 @@
 # Console Perf
 
-This repo is a test-bed of console perf analysis.
+This repo is a test-bed of console perf analysis. Each test is broken out into a different branch with its own README.md analysing the results. The tests use React 16.
 
 ## Batch add messages on an interval.
 
 This test batch adds 100 messages every 500ms. This is a useful way to see how React's performance regresses over time.
-
-* `git checkout batch-add-interval`
-* [https://perfht.ml/2yPxNGs](https://perfht.ml/2yPxNGs)
-
-## <MessageBatcher> component
-
-This test takes the list of messages and tries to minimize the `O(n)` characteristics of updating the list of messages.
-
-Instead of a JSX like:
 
 ```
 <Console>
@@ -23,6 +14,20 @@ Instead of a JSX like:
   <Message />
 </Console>
 ```
+
+* [View the branch and analysis](https://github.com/gregtatum/console-perf/tree/batch-add-interval)
+* [https://perfht.ml/2yPxNGs](https://perfht.ml/2yPxNGs)
+* `git checkout batch-add-interval`
+* `npm start`
+
+## `<MessageBatcher>` component
+
+This test takes the list of messages and tries to minimize the `O(n)` characteristics of updating the list of messages.
+
+* [View the branch and analysis](https://github.com/gregtatum/console-perf/tree/message-batcher-component)
+* [https://perfht.ml/2hlsQda](https://perfht.ml/2hlsQda)
+* `git checkout message-batcher-component`
+* `npm start`
 
 It looks like:
 
